@@ -46,23 +46,22 @@ colcon build --packages-select project_roomba
 . install/setup.bash
 ```
 
-## Set the Gazebo model path and TurtleBot3 model
+## Settin TurtleBot3 model and Gazebo model path
 - The launch file will not work unless these two parameters are set.
-- Run the below commands in the terminal you wish to run the obstacle avoidance.
+- These parameters can be changed according to the user.
 ```
-export GAZEBO_MODEL_PATH=`ros2 pkg prefix turtlebot3_gazebo`/share/turtlebot3_gazebo/models/
 export TURTLEBOT3_MODEL=burger
+export GAZEBO_MODEL_PATH=`ros2 pkg prefix turtlebot3_gazebo`/share/turtlebot3_gazebo/models/
 ```
 
 ## Launching `project_roomba`
-ros2 launch project_roomba roomba_launcher.py record_flag:=False
-
-## Using ROS2 Bag files to store the published data
-- A launch file is created in the launch directory that calls the TurtleBot3 gazebo world and obstacle avoidance node.
-- Note that walker_bag should not be in your directory to launch with recording. Delete the folder if it exists.
-- Command to launch with recording:
 ```
-ros2 launch project_roomba launch_walker.py record_flag:=True
+ros2 launch project_roomba roomba_launcher.py record_flag:=False
+```
+
+## Storing published data using ROS bags
+```
+ros2 launch project_roomba roomba_launcher.py record_flag:=True
 ```
 
 ## Code Analysis
