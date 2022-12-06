@@ -35,7 +35,6 @@ cd ~/ros2_ws/src/
 git clone https://github.com/roboticistjoseph/TurtleBot3-Roomba.git
 cd TurtleBot3-Roomba
 rosdep install -i --from-path src --rosdistro humble -y
-cd ../.. # Get back to your ros2 workspace
 colcon build --packages-select project_roomba
 ```
 
@@ -63,6 +62,7 @@ ros2 launch project_roomba roomba_launcher.py record_flag:=False
 ```
 ros2 launch project_roomba roomba_launcher.py record_flag:=True
 ```
+The results of running ```ros2 bag``` can be found in ```/results/walker_bag```.
 
 ## Code Analysis
 Running 'cpplint' and 'cppcheck' to check for coding style and detect bugs.
